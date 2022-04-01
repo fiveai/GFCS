@@ -1,4 +1,4 @@
-## Figure 4 - CDFS for targeted attacks
+## Figure 5 - CDFS for targeted attacks
 
 The following calls can be used to reproduce the results from Fig.4 of the paper, representing the cumulative distribution functions of several *targeted* black-box attacks, with four surrogate networks.
 To obtain the results for GFCS and SimBA-ODS the scripts `blackbox_simbaODS.py` is used, which belong to this repository.
