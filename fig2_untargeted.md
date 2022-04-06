@@ -1,7 +1,7 @@
 ## Figure 2 - CDFs for untargeted attacks
 
 The following calls can be used to reproduce the results from Fig.2 of the paper, representing the cumulative distribution functions of several *untargeted* black-box attacks, with one or four surrogate networks.
-To obtain the results for GFCS, SimBA-ODS, P-RGF and ODS-RGF the scripts `blackbox_simbaODS.py` and `rgf_variants_pytorch.py` are used, which belong to this repository.
+To obtain the results for GFCS, SimBA-ODS, P-RGF and ODS-RGF the scripts `GFCS_main.py` and `rgf_variants_pytorch.py` are used, which belong to this repository.
 Instead, the results for SimBA++ and LeBA should be obtained using the modified version of the original LeBA repository, which can be found here **TODO**.
 Finally, for SquareAttack **TODO**.
 
@@ -10,16 +10,16 @@ Finally, for SquareAttack **TODO**.
 
 **GFCS**
 ```
-python blackbox_simbaODS.py --model_name vgg16_bn --smodel_name resnet152 --data_index_set vgg16_bn_batch0_2 --ODS --special_margin_gradient_option --revert_to_ODS_when_stuck --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/GFCS_vgg16target_resnet152surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name resnet50 --smodel_name resnet152 --data_index_set resnet50_batch0_2 --ODS --special_margin_gradient_option --revert_to_ODS_when_stuck --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/GFCS_res50target_resnet152surr_resnet50_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name inception_v3 --smodel_name resnet152 --data_index_set inceptionv3_batch0_2 --ODS --net_specific_resampling --special_margin_gradient_option --revert_to_ODS_when_stuck --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/GFCS_incep3target_resnet152surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
+python GFCS_main.py --model_name vgg16_bn --smodel_name resnet152 --data_index_set vgg16_bn_batch0_2 --GFCS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/GFCS_vgg16target_resnet152surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name resnet50 --smodel_name resnet152 --data_index_set resnet50_batch0_2 --GFCS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/GFCS_res50target_resnet152surr_resnet50_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name inception_v3 --smodel_name resnet152 --data_index_set inceptionv3_batch0_2 --ODS --net_specific_resampling --special_margin_gradient_option --revert_to_ODS_when_stuck --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/GFCS_incep3target_resnet152surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
 ```
 
 **SimBA-ODS**
 ```
-python blackbox_simbaODS.py --model_name vgg16_bn --smodel_name resnet152 --data_index_set vgg16_bn_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/simbaODS_vgg16target_resnet152surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name resnet50 --smodel_name resnet152 --data_index_set resnet50_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/simbaODS_res50target_resnet152surr_resnet50_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name inception_v3 --smodel_name resnet152 --data_index_set inceptionv3_batch0_2 --ODS --net_specific_resampling --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/simbaODS_incep3target_resnet152surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
+python GFCS_main.py --model_name vgg16_bn --smodel_name resnet152 --data_index_set vgg16_bn_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/simbaODS_vgg16target_resnet152surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name resnet50 --smodel_name resnet152 --data_index_set resnet50_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/simbaODS_res50target_resnet152surr_resnet50_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name inception_v3 --smodel_name resnet152 --data_index_set inceptionv3_batch0_2 --ODS --net_specific_resampling --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/1surr/simbaODS_incep3target_resnet152surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
 ```
 
 **P-RGF (default hyperparams)**
@@ -90,16 +90,16 @@ python get_results_sanitised.py --method LeBA --log_path 2022/LeBAcheat_inceptio
 
 **GFCS**
 ```
-python blackbox_simbaODS.py --model_name vgg16_bn --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set vgg16_bn_batch0_2 --ODS --special_margin_gradient_option --revert_to_ODS_when_stuck --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/GFCS_vgg16target_r34v19d121mobv2surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name resnet50 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set resnet50_batch0_2 --ODS --special_margin_gradient_option --revert_to_ODS_when_stuck --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/GFCS_res50target_r34v19d121mobv2surr_resnet50_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name inception_v3 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set inceptionv3_batch0_2 --ODS  --special_margin_gradient_option --revert_to_ODS_when_stuck --net_specific_resampling --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/GFCS_incep3target_r34v19d121mobv2surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
+python GFCS_main.py --model_name vgg16_bn --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set vgg16_bn_batch0_2 --GFCS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/GFCS_vgg16target_r34v19d121mobv2surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name resnet50 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set resnet50_batch0_2 --GFCS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/GFCS_res50target_r34v19d121mobv2surr_resnet50_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name inception_v3 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set inceptionv3_batch0_2 --ODS  --special_margin_gradient_option --revert_to_ODS_when_stuck --net_specific_resampling --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/GFCS_incep3target_r34v19d121mobv2surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
 ```
 
 **SimBA-ODS**
 ```
-python blackbox_simbaODS.py --model_name vgg16_bn --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set vgg16_bn_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/simbaODS_vgg16target_r34v19d121mobv2surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name resnet50 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set resnet50_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/simbaODS_res50target_r34v19d121mobv2surr_resnet50_batch0+2_20000_12.269_2.0.pt
-python blackbox_simbaODS.py --model_name inception_v3 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set inceptionv3_batch0_2 --ODS --net_specific_resampling --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/simbaODS_incep3target_r34v19d121mobv2surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
+python GFCS_main.py --model_name vgg16_bn --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set vgg16_bn_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/simbaODS_vgg16target_r34v19d121mobv2surr_vgg16_bn_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name resnet50 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set resnet50_batch0_2 --ODS --num_sample 2000 --num_step 20000 --norm_bound 12.269 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/simbaODS_res50target_r34v19d121mobv2surr_resnet50_batch0+2_20000_12.269_2.0.pt
+python GFCS_main.py --model_name inception_v3 --smodel_name vgg19_bn resnet34 densenet121 mobilenet_v2 --data_index_set inceptionv3_batch0_2 --ODS --net_specific_resampling --num_sample 2000 --num_step 20000 --norm_bound 16.377 --step_size 2.0 --output experimental_results/2022/untargeted/4surr/simbaODS_incep3target_r34v19d121mobv2surr_interp_inceptionv3_batch0+2_20000_16.377_2.0.pt
 ```
 
 **P-RGF (default hyperparams)**
