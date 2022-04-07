@@ -3,7 +3,7 @@
 The following calls can be used to reproduce the results from Fig. 5 of the paper, representing the cumulative distribution functions of several *targeted* black-box attacks, with four surrogate networks ({VGG-19, ResNet-34, DenseNet-121, MobileNetV2}).
 The results for GFCS and SimBA-ODS are obtained with the script `GFCS_main.py`, which belongs to this repository.
 
-For SquareAttack, **TODO**.
+If also reproducing the Square Attack results, make sure that that repo has been configured as specified in fig2_untargeted.md.
 
 
 ### Perform attacks using _four_ surrogates
