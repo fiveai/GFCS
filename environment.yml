@@ -1,0 +1,20 @@
+# NOTE: If installing via Conda, carefully check that pytorch, cudatoolkit, and torchvision have the correct versions.
+# If not, a workaround is to not specify the torchvision version, and then pip install torchvision=0.10
+
+name: GFCS
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - cudatoolkit=10.2
+  - foolbox
+  - matplotlib
+  - numpy
+  - pillow
+  - pip
+  - python=3.8
+  - pytorch=1.9
+  - torchvision=0.10
+  - pip:
+    - configargparse
