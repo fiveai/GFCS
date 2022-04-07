@@ -9,7 +9,7 @@ On cloning that repository, ensure that the ID of the checked-out commit is 3289
 ```
 git apply --ignore-space-change --ignore-whitespace gfcs_leba_comparison.diff
 ```
-Finally, for SquareAttack, repeat the above process, using the original repo at https://github.com/max-andr/square-attack, and apply the provided diff to commit ea95eeb likewise:
+Finally, for Square Attack, repeat the above process, using the original repo at https://github.com/max-andr/square-attack, and apply the provided diff to commit ea95eeb likewise:
 ```
 git apply --ignore-space-change --ignore-whitespace gfcs_square_comparison.diff
 ```
