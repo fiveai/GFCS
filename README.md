@@ -1,6 +1,6 @@
 **(WORK IN PROGRESS)**
 
-This is the github repository for the ICLR 2022 paper "[Attacking deep networks with surrogate-based adversarial black-box methods is easy](https://openreview.net/forum?id=Zf4ZdI4OQPV)", by Nicholas A. Lord, Romain Mueller, and Luca Bertinetto.
+This is the GitHub repository for the ICLR 2022 paper "[Attacking deep networks with surrogate-based adversarial black-box methods is easy](https://openreview.net/forum?id=Zf4ZdI4OQPV)", by Nicholas A. Lord, Romain Mueller, and Luca Bertinetto.
 
 ## Requirements
 
@@ -10,7 +10,7 @@ Please see `environment.yml`.
 Consult the following sets of instructions to reproduce the results of the paper:
 * [Main results: untargeted black-box attacks](fig2_untargeted.md) (Fig.2 in the paper) (this repo).
 * [Targeted black-box attacks](fig5_targeted.md) (Fig.5 in the paper) (this repo).
-* [On the importance of input-specific priors](fig4_input-specific_priors.md) (Fig.4 in the paper) (SimBA-PCA repo **TODO**).
+* [On the importance of input-specific priors](fig4_input-specific_priors.md) (Fig.4 in the paper) (SimBA-PCA repo **COMING SOON**).
 
 ## Citation
 ```
@@ -26,6 +26,6 @@ Consult the following sets of instructions to reproduce the results of the paper
 ```
 
 ### Acknowledgement
-This repository is based on ODS original implementation (https://github.com/ermongroup/ODS).
+The main method in this repository is based on the original implementation of SimBA-ODS (https://github.com/ermongroup/ODS).
 We thank the authors for making their code available.
 
