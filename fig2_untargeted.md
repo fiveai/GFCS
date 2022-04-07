@@ -1,15 +1,18 @@
 ## Figure 2 - CDFs for untargeted attacks
 
 The following calls can be used to reproduce the results from Fig. 2 of the paper, representing the cumulative distribution functions of several *untargeted* black-box attacks, with one (ResNet-152) or four ({VGG-19, ResNet-34, DenseNet-121, MobileNetV2}) surrogate networks.
-To obtain the results for GFCS, SimBA-ODS, P-RGF, and ODS-RGF, the scripts `GFCS_main.py` and `rgf_variants_pytorch.py` are used, which belong to this repository.
+
+The results for GFCS, SimBA-ODS, P-RGF, and ODS-RGF are produced using the scripts `GFCS_main.py` and `rgf_variants_pytorch.py`, which belong to this repository.
 
 The results for SimBA++ and LeBA are instead obtained using a modified version of the original LeBA repository, which can be found here: https://github.com/TrustworthyDL/LeBA.
 On cloning that repository, ensure that the ID of the checked-out commit is 3289c1, and apply the diff file provided in this repo as follows:
 ```
-git apply gfcs_leba_comparison.diff
+git apply --ignore-space-change --ignore-whitespace gfcs_leba_comparison.diff
 ```
-Finally, for SquareAttack **TODO**.
-
+Finally, for SquareAttack, repeat the above process, using the original repo at https://github.com/max-andr/square-attack, and apply the provided diff to commit ea95eeb likewise:
+```
+git apply --ignore-space-change --ignore-whitespace gfcs_square_comparison.diff
+```
 
 ### Perform attacks using _one_ surrogate
 
