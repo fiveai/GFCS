@@ -1,12 +1,12 @@
 ## Figure 4 - On the importance of input-specific priors
 
-The following calls can be used to reproduce the results from Fig.4 of the paper from the section "On the importance of input-specific priors".
-Note that most of these scripts are located in the SimBA-PCA repo (**TODO**).
+The following calls can be used to reproduce the results from Fig. 4 of the paper, in the section "On the importance of input-specific priors".
+Note that most of these scripts are located in the [SimBA-PCA repo](https://github.com/fiveai/SimBA-PCA).
 
 ### Perform attacks
 
 **SimBA-pixel**
-(From SimBA-PCA repo)
+(From the SimBA-PCA repo)
 ```
 python scripts_core/mufasa.py --attack_basis pixel --order random --epsilon 2.0 --model=vgg16_bn --dataset imagenet_val --data_dir /data_ssd/datasets/ilsvrc12 --data_transform imagenet_common_224 --data_normalisation imagenet_common --num_runs 1998 --subtract_competition --query_saver --attack_mode standard_simba --result_dir 2022 --save_prefix simbapixel_vgg16_ --batch_size 50 --correct_samples_only --num_iters 20000 --norm_bound 12.269
 python scripts_core/mufasa.py --attack_basis pixel --order random --epsilon 2.0 --model=resnet50 --dataset imagenet_val --data_dir /data_ssd/datasets/ilsvrc12 --data_transform imagenet_common_224 --data_normalisation imagenet_common --num_runs 1998 --subtract_competition --query_saver --attack_mode standard_simba --result_dir 2022 --save_prefix simbapixel_resnet50_ --batch_size 50 --correct_samples_only --num_iters 20000 --norm_bound 12.269
@@ -14,7 +14,7 @@ python scripts_core/mufasa.py --attack_basis pixel --order random --epsilon 2.0 
 ```
 
 **SimBA-DCT**
-(From SimBA-PCA repo)
+(From the SimBA-PCA repo)
 ```
 python scripts_core/mufasa.py --attack_basis dct --order random --freq_domain_width 28 --epsilon 2.0 --model=vgg16_bn --dataset imagenet_val --data_dir /data_ssd/datasets/ilsvrc12 --data_transform imagenet_common_224 --data_normalisation imagenet_common --num_runs 1998 --subtract_competition --query_saver --attack_mode standard_simba --result_dir 2022 --save_prefix simbadct_vgg16_ --batch_size 50 --correct_samples_only --num_iters 20000 --norm_bound 12.269
 python scripts_core/mufasa.py --attack_basis dct --order random --freq_domain_width 28 --epsilon 2.0 --model=resnet50 --dataset imagenet_val --data_dir /data_ssd/datasets/ilsvrc12 --data_transform imagenet_common_224 --data_normalisation imagenet_common --num_runs 1998 --subtract_competition --query_saver --attack_mode standard_simba --result_dir 2022 --save_prefix simbadct_resnet50_ --batch_size 50 --correct_samples_only --num_iters 20000 --norm_bound 12.269
@@ -22,10 +22,12 @@ python scripts_core/mufasa.py --attack_basis dct --order random --freq_domain_wi
 ```
 
 **SimBA-PCA-images**
-(From SimBA-PCA repo)
+(From the SimBA-PCA repo)
 
 Generate adversaries
-`python scripts_core/generate_adversaries.py --adversary_type normalised_data --model=resnet152 --dataset=imagenet_train --data_dir=/data_ssd/datasets/ilsvrc12 --data_transform=imagenet_common_224 --data_normalisation=imagenet_common --sample_count=8192 --result_dir=2022 --batch_size 25`
+```
+python scripts_core/generate_adversaries.py --adversary_type normalised_data --model=resnet152 --dataset=imagenet_train --data_dir=/data_ssd/datasets/ilsvrc12 --data_transform=imagenet_common_224 --data_normalisation=imagenet_common --sample_count=8192 --result_dir=2022 --batch_size 25
+```
 
 Compute dominant directions (for both image size 224 and 299)
 ```
@@ -41,10 +43,12 @@ python scripts_core/mufasa.py --attack_basis enlo --order straight --epsilon 2.0
 ```
 
 **SimBA-PCA-gradients**
-(From SimBA-PCA repo)
+(From the SimBA-PCA repo)
 
 Generate adversaries
-```python scripts_core/generate_adversaries.py --adversary_type raw_gradients --model=resnet152 --dataset=imagenet_train --data_dir=/data_ssd/datasets/ilsvrc12 --data_transform=imagenet_common_224 --data_normalisation=imagenet_common --sample_count=8192 --result_dir=2022 --batch_size 25```
+```
+python scripts_core/generate_adversaries.py --adversary_type raw_gradients --model=resnet152 --dataset=imagenet_train --data_dir=/data_ssd/datasets/ilsvrc12 --data_transform=imagenet_common_224 --data_normalisation=imagenet_common --sample_count=8192 --result_dir=2022 --batch_size 25
+```
 
 Compute dominant directions (for both image size 224 and 299)
 ```
