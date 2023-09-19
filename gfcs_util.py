@@ -36,7 +36,10 @@ class Normalise(torch.nn.Module):
 # Only intended for use on untargeted attacks.
 def margin_loss(logits, y):
     class_org = y.item()
-    class_tgt = (logits - torch.eye(1000)[y].to(logits.device) * float('inf')).argmax(1, keepdim=True).item()
+    num_classes = logits.size(1)
+    cover_orig_logit = torch.zeros(1, num_classes).to(logits.device)
+    cover_orig_logit[0, y] = float('inf')
+    class_tgt = (logits - cover_orig_logit).argmax(1, keepdim=True).item()
     logit_org = logits[0, class_org]
     logit_target = logits[0, class_tgt]
     loss = -logit_org + logit_target
